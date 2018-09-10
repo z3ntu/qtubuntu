@@ -162,7 +162,7 @@ void UbuntuScreen::setMirOutput(const MirOutput *output)
     if (overrideDevicePixelRatio > 0) {
         mDevicePixelRatio = overrideDevicePixelRatio;
     } else {
-        mDevicePixelRatio = 1.0; // FIXME - need to determine suitable DPR for the specified scale
+        mDevicePixelRatio = 10.0; // FIXME - need to determine suitable DPR for the specified scale
     }
 
     mFormFactor = mir_output_get_form_factor(output);
