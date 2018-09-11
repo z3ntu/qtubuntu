@@ -230,7 +230,7 @@ void UbuntuScreen::setAdditionalMirDisplayProperties(float scale, MirFormFactor 
 
 qreal UbuntuScreen::pixelDensity() const
 {
-    return qRound(logicalDpi() / 160);
+    return qMax(1.0, qRound(logicalDpi() / 160));
 }
 
 QDpi UbuntuScreen::logicalDpi() const
