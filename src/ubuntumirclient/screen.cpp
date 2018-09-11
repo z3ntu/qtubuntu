@@ -162,7 +162,7 @@ void UbuntuScreen::setMirOutput(const MirOutput *output)
     if (overrideDevicePixelRatio > 0) {
         mDevicePixelRatio = overrideDevicePixelRatio;
     } else {
-        mDevicePixelRatio = 10.0; // FIXME - need to determine suitable DPR for the specified scale
+        mDevicePixelRatio = 1.0; // FIXME - need to determine suitable DPR for the specified scale
     }
 
     mFormFactor = mir_output_get_form_factor(output);
@@ -226,6 +226,11 @@ void UbuntuScreen::setAdditionalMirDisplayProperties(float scale, MirFormFactor 
         mFormFactor = formFactor;
         nativeInterface->screenPropertyChanged(this, QStringLiteral("formFactor"));
     }
+}
+
+qreal UbuntuScreen::pixelDensity() const
+{
+    return qRound(logicalDpi() / 160);
 }
 
 QDpi UbuntuScreen::logicalDpi() const
